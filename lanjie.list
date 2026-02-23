@@ -143,3 +143,25 @@ DOMAIN-SUFFIX,votolia.com
 DOMAIN-SUFFIX,worldsecureemail.com
 DOMAIN-SUFFIX,worldsecuresystems.com
 DOMAIN-KEYWORD,adobe
+# NAME: CorelDRW
+DOMAIN-SUFFIX,apps.corel.com
+DOMAIN-SUFFIX,mc.corel.com
+DOMAIN-SUFFIX,origin-mc.corel.com
+DOMAIN-SUFFIX,iws.corel.com
+DOMAIN-SUFFIX,ipm.corel.com
+DOMAIN-SUFFIX,sws.corel.com
+DOMAIN-SUFFIX,dam.corel.com
+DOMAIN-SUFFIX,compute-1.amazonaws.com
+DOMAIN-SUFFIX,apps.corel.com
+DOMAIN-SUFFIX,www.corel.com
+DOMAIN-SUFFIX,content.corel.com
+DOMAIN-SUFFIX,ipp.corel.com
+DOMAIN-SUFFIX,secure.ipp.corel.com
+DOMAIN-SUFFIX,lm.licenses.adobe.com
+DOMAIN-SUFFIX,na2m-pr.licenses.adobe.com
+DOMAIN-SUFFIX,practivate.adobe.com
+DOMAIN-SUFFIX,activate.adobe.com
+DOMAIN-SUFFIX,ereg.adobe.com
+DOMAIN-SUFFIX,wip.adobe.com
+DOMAIN-SUFFIX,lmlicenses.wip4.adobe.com
+DOMAIN-SUFFIX,cloud.coreldraw.app
