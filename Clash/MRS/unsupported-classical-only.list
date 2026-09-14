@@ -1,0 +1,221 @@
+# 这些规则未写入 domain/ipcidr .mrs，需要 classical 行为或保留在主配置 rules 中。
+# 包括 DOMAIN-KEYWORD、PROCESS-NAME、GEOIP、MATCH 等。
+# 已实测 mihomo v1.19.30/v1.18.10 的 convert-ruleset classical 在本环境会 panic，因此未生成 classical .mrs。
+# line 1203: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adobe,🛑 全球拦截
+# line 1256: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,github,📲 社交聊天
+# line 1286: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,musical.ly,📲 社交聊天
+# line 1287: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,tiktok,📲 社交聊天
+# line 1288: requires-classical-or-inline-rules
+PROCESS-NAME,com.zhiliaoapp.musically,📲 社交聊天
+# line 1313: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,nicegram,📲 社交聊天
+# line 1324: requires-classical-or-inline-rules
+PROCESS-NAME,Telegram.exe,📲 社交聊天
+# line 1325: requires-classical-or-inline-rules
+PROCESS-NAME,nekox.messenger,📲 社交聊天
+# line 1326: requires-classical-or-inline-rules
+PROCESS-NAME,org.telegram.messenger,📲 社交聊天
+# line 1327: requires-classical-or-inline-rules
+PROCESS-NAME,telegram-desktop,📲 社交聊天
+# line 1328: requires-classical-or-inline-rules
+PROCESS-NAME,tw.nekomimi.nekogram,📲 社交聊天
+# line 1329: requires-classical-or-inline-rules
+PROCESS-NAME,xyz.nextalone.nagram,📲 社交聊天
+# line 1335: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,whatsapp,📲 社交聊天
+# line 1373: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,twitter,📲 社交聊天
+# line 1924: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,facebook,📲 社交聊天
+# line 1925: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,fbcdn,📲 社交聊天
+# line 2135: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,avoddashs,📲 社交聊天
+# line 2151: requires-classical-or-inline-rules
+PROCESS-NAME,com.amazon.avod.thirdpartyclient,📲 社交聊天
+# line 2517: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,youtube,🎥 国外媒体
+# line 2693: requires-classical-or-inline-rules
+PROCESS-NAME,com.disney.datg.videoplatforms.android.abc,🎥 国外媒体
+# line 2694: requires-classical-or-inline-rules
+PROCESS-NAME,com.disney.disneyplus,🎥 国外媒体
+# line 2728: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,apiproxy-device-prod-nlb-,🎥 国外媒体
+# line 2729: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,dualstack.apiproxy-,🎥 国外媒体
+# line 2730: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,dualstack.ichnaea-web-,🎥 国外媒体
+# line 2731: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,netflixdnstest,🎥 国外媒体
+# line 3851: requires-classical-or-inline-rules
+PROCESS-NAME,com.netflix.mediaclient,🎥 国外媒体
+# line 3899: requires-classical-or-inline-rules
+PROCESS-NAME,com.hbo.hbonow,🎥 国外媒体
+# line 3926: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,spotify,🎥 国外媒体
+# line 3929: requires-classical-or-inline-rules
+PROCESS-NAME,com.spotify.music,🎥 国外媒体
+# line 37957: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,amazon,🎥 国外媒体
+# line 37958: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,avoddashs,🎥 国外媒体
+# line 37959: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,bbcfmt,🎥 国外媒体
+# line 37960: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,jav,🎥 国外媒体
+# line 37961: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,musical.ly,🎥 国外媒体
+# line 37962: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,pinterest,🎥 国外媒体
+# line 37963: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,tiktok,🎥 国外媒体
+# line 37964: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,twimg,🎥 国外媒体
+# line 37965: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,voddazn,🎥 国外媒体
+# line 37966: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,wikileaks,🎥 国外媒体
+# line 37967: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,1drv,🎥 国外媒体
+# line 37968: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,1e100,🎥 国外媒体
+# line 37969: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,abema,🎥 国外媒体
+# line 37970: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,appledaily,🎥 国外媒体
+# line 37971: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,avtb,🎥 国外媒体
+# line 37972: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,beetalk,🎥 国外媒体
+# line 37973: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,blogspot,🎥 国外媒体
+# line 37974: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,dlercloud,🎥 国外媒体
+# line 37975: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,dropbox,🎥 国外媒体
+# line 37976: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,facebook,🎥 国外媒体
+# line 37977: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,fbcdn,🎥 国外媒体
+# line 37978: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,gmail,🎥 国外媒体
+# line 37979: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,google,🎥 国外媒体
+# line 37980: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,instagram,🎥 国外媒体
+# line 37981: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,onedrive,🎥 国外媒体
+# line 37982: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,paypal,🎥 国外媒体
+# line 37983: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,porn,🎥 国外媒体
+# line 37984: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,sci-hub,🎥 国外媒体
+# line 37985: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,skydrive,🎥 国外媒体
+# line 37986: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,spotify,🎥 国外媒体
+# line 37987: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,telegram,🎥 国外媒体
+# line 37988: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,ttvnw,🎥 国外媒体
+# line 37989: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,twitter,🎥 国外媒体
+# line 37990: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,uk-live,🎥 国外媒体
+# line 37991: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,whatsapp,🎥 国外媒体
+# line 37992: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,youtube,🎥 国外媒体
+# line 38109: requires-classical-or-inline-rules
+PROCESS-NAME,LookupViewService,🎥 国外媒体
+# line 38221: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,360buy,🎯 全球直连
+# line 38222: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,alicdn,🎯 全球直连
+# line 38223: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,alimama,🎯 全球直连
+# line 38224: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,alipay,🎯 全球直连
+# line 38225: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,appzapp,🎯 全球直连
+# line 38226: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,baidupcs,🎯 全球直连
+# line 38227: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,bilibili,🎯 全球直连
+# line 38228: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,ccgslb,🎯 全球直连
+# line 38229: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,chinacache,🎯 全球直连
+# line 38230: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,duobao,🎯 全球直连
+# line 38231: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,jdpay,🎯 全球直连
+# line 38232: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,moke,🎯 全球直连
+# line 38233: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,qhimg,🎯 全球直连
+# line 38234: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,vpimg,🎯 全球直连
+# line 38235: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,xiami,🎯 全球直连
+# line 38236: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,xiaomi,🎯 全球直连
+# line 38872: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,admarvel,🎯 全球直连
+# line 38873: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,admaster,🎯 全球直连
+# line 38874: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adsage,🎯 全球直连
+# line 38875: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adsensor,🎯 全球直连
+# line 38876: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adsmogo,🎯 全球直连
+# line 38877: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adsrvmedia,🎯 全球直连
+# line 38878: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adsserving,🎯 全球直连
+# line 38879: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adsystem,🎯 全球直连
+# line 38880: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,adwords,🎯 全球直连
+# line 38881: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,applovin,🎯 全球直连
+# line 38882: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,appsflyer,🎯 全球直连
+# line 38883: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,domob,🎯 全球直连
+# line 38884: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,duomeng,🎯 全球直连
+# line 38885: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,dwtrack,🎯 全球直连
+# line 38886: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,guanggao,🎯 全球直连
+# line 38887: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,omgmta,🎯 全球直连
+# line 38888: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,omniture,🎯 全球直连
+# line 38889: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,openx,🎯 全球直连
+# line 38890: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,partnerad,🎯 全球直连
+# line 38891: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,pingfore,🎯 全球直连
+# line 38892: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,socdm,🎯 全球直连
+# line 38893: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,supersonicads,🎯 全球直连
+# line 38894: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,wlmonitor,🎯 全球直连
+# line 38895: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,zjtoolbar,🎯 全球直连
+# line 39994: requires-classical-or-inline-rules
+DOMAIN-KEYWORD,omgmtaw,🎯 全球直连
+# line 48140: requires-classical-or-inline-rules
+GEOIP,CN,🎯 全球直连,no-resolve
+# line 48141: requires-classical-or-inline-rules
+MATCH,🐟 漏网之鱼

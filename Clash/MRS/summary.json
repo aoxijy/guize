@@ -1,0 +1,27 @@
+{
+  "total_rules": 47105,
+  "type_counts": {
+    "DOMAIN": 197,
+    "DOMAIN-SUFFIX": 37779,
+    "DOMAIN-KEYWORD": 93,
+    "PROCESS-NAME": 14,
+    "IP-CIDR": 8999,
+    "IP-CIDR6": 21,
+    "GEOIP": 1,
+    "MATCH": 1
+  },
+  "domain_files": {
+    "ai-platform": 30,
+    "direct": 2274,
+    "foreign-media": 34484,
+    "microsoft-apple": 186,
+    "reject": 157,
+    "social-chat": 845
+  },
+  "ipcidr_files": {
+    "direct": 7715,
+    "foreign-media": 1240,
+    "social-chat": 65
+  },
+  "unsupported_count": 109
+}
