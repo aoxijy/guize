@@ -27,6 +27,7 @@
   },
   "upstream_rule_lines": {
     "manual-lanjie": 158,
+    "manual-zhilian": 22,
     "blackmatrix7-openai": 35,
     "blackmatrix7-claude": 3,
     "blackmatrix7-gemini": 13,

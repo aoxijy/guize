@@ -17,6 +17,7 @@ MRS_DIR = ROOT / "Clash" / "MRS"
 BASE_DIR = MRS_DIR / "sources" / "base"
 UPSTREAMS_FILE = MRS_DIR / "sources" / "upstreams.yml"
 MANUAL_REJECT_FILE = ROOT / "lanjie.list"
+MANUAL_DIRECT_FILE = ROOT / "zhilian.list"
 
 CATEGORIES = {
     "ai-platform": "AI平台",
@@ -174,6 +175,15 @@ def main() -> int:
                 continue
             add_rule("reject", rule, domains, ips, unsupported, "manual-lanjie")
             source_counts["manual-lanjie"] += 1
+
+    # 手工直连源：用户以后直接改仓库根目录 zhilian.list，push 后 Actions 会重新编译 direct .mrs。
+    if MANUAL_DIRECT_FILE.exists():
+        for raw in MANUAL_DIRECT_FILE.read_text(encoding="utf-8", errors="replace").splitlines():
+            rule = normalize_rule(raw)
+            if not rule:
+                continue
+            add_rule("direct", rule, domains, ips, unsupported, "manual-zhilian")
+            source_counts["manual-zhilian"] += 1
 
     upstreams = load_upstreams(UPSTREAMS_FILE)
     for category, sources in upstreams.items():

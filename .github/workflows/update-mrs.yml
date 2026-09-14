@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'lanjie.list'
+      - 'zhilian.list'
       - 'Clash/MRS/sources/**'
       - 'scripts/update_mrs.py'
       - '.github/workflows/update-mrs.yml'

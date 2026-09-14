@@ -1,6 +1,6 @@
 # Mihomo MRS 分类规则集
 
-来源：原 `zhu111.yaml` 的 `rules:` 段 + 仓库根目录 `lanjie.list` + `sources/upstreams.yml` 中配置的上游 Clash 规则源。这里只保存规则和编译后的 `.mrs`，不包含任何代理节点、密码、UUID 或服务器配置。
+来源：原 `zhu111.yaml` 的 `rules:` 段 + 仓库根目录 `lanjie.list` / `zhilian.list` + `sources/upstreams.yml` 中配置的上游 Clash 规则源。这里只保存规则和编译后的 `.mrs`，不包含任何代理节点、密码、UUID 或服务器配置。
 
 ## 分类文件
 
@@ -18,8 +18,8 @@
 
 - GitHub Actions：`.github/workflows/update-mrs.yml`。
 - 默认每天 UTC `02:17` 运行一次，也支持手动 `workflow_dispatch`。
-- 当你 push 修改 `lanjie.list`、`Clash/MRS/sources/**`、`scripts/update_mrs.py` 或 workflow 文件时，也会自动触发。
-- 更新逻辑：读取 `sources/base/*.txt` 作为本仓库基础规则，读取根目录 `lanjie.list` 作为手工全球拦截源，再拉取 `sources/upstreams.yml` 中的上游，去重合并后用 `mihomo convert-ruleset` 重新生成 `.mrs`。
+- 当你 push 修改 `lanjie.list`、`zhilian.list`、`Clash/MRS/sources/**`、`scripts/update_mrs.py` 或 workflow 文件时，也会自动触发。
+- 更新逻辑：读取 `sources/base/*.txt` 作为本仓库基础规则，读取根目录 `lanjie.list` 作为手工全球拦截源、`zhilian.list` 作为手工全球直连源，再拉取 `sources/upstreams.yml` 中的上游，去重合并后用 `mihomo convert-ruleset` 重新生成 `.mrs`。
 - 每次运行都会发布/覆盖 `mrs-latest` Release，生成固定下载地址；没有规则变化也会刷新 Release 资产。
 
 ## 已配置上游分类
@@ -29,8 +29,9 @@
 - 开发平台：GitHub、GitLab、Docker、JetBrains、Cloudflare、Vercel、SourceForge、GitBook。
 - 国外媒体：YouTube、Netflix、Hulu、Disney / Disney+、Spotify、Twitch、HBO、Prime Video、Bahamut。
 - 微软苹果：Apple、Microsoft、OneDrive、Xbox。
+- 全球直连：仓库根目录 `zhilian.list` 手工源 + 基础直连规则。
 - 全球拦截：仓库根目录 `lanjie.list` 手工源 + Adobe 上游（blackmatrix7、ACL4SSR）。`lanjie.list` 中已有 CorelDRAW/Corel 相关规则；CorelDRAW 和 SOLIDWORKS 暂未找到常用规则库里的稳定独立上游。
-- 后续要增加其它服务，只需向 `sources/upstreams.yml` 添加对应 URL；手工拦截规则可直接加到根目录 `lanjie.list`。
+- 后续要增加其它服务，只需向 `sources/upstreams.yml` 添加对应 URL；手工拦截规则可直接加到根目录 `lanjie.list`；手工直连规则可直接加到根目录 `zhilian.list`。
 
 ## Release 固定下载地址
 
