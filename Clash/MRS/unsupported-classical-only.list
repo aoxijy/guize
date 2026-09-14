@@ -49,8 +49,6 @@ IP-ASN,59930,no-resolve
 IP-ASN,62014,no-resolve
 # source: blackmatrix7-telegram category: social-chat
 IP-ASN,62041,no-resolve
-# source: blackmatrix7-github category: social-chat
-DOMAIN-KEYWORD,github
 # source: blackmatrix7-twitter category: social-chat
 DOMAIN-KEYWORD,twitter
 # source: blackmatrix7-facebook category: social-chat
@@ -65,14 +63,16 @@ DOMAIN-KEYWORD,instagram
 DOMAIN-KEYWORD,whatsapp
 # source: acl4ssr-telegram category: social-chat
 DOMAIN-KEYWORD,telegram
-# source: acl4ssr-github category: social-chat
-DOMAIN-KEYWORD,github
 # source: acl4ssr-twitter category: social-chat
 DOMAIN-KEYWORD,twitter
 # source: acl4ssr-facebook category: social-chat
 DOMAIN-KEYWORD,facebook
 # source: acl4ssr-facebook category: social-chat
 DOMAIN-KEYWORD,fbcdn
+# source: blackmatrix7-github category: developer-platform
+DOMAIN-KEYWORD,github
+# source: acl4ssr-github category: developer-platform
+DOMAIN-KEYWORD,github
 # source: blackmatrix7-youtube category: foreign-media
 DOMAIN-KEYWORD,youtube
 # source: blackmatrix7-netflix category: foreign-media

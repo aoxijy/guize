@@ -7,7 +7,8 @@
 | 分类 | domain .mrs | domain 规则数 | ipcidr .mrs | ipcidr 规则数 |
 |---|---:|---:|---:|---:|
 | AI平台 | `ai-platform-domain.mrs` | 84 | `ai-platform-ipcidr.mrs` | 2 |
-| 社交聊天 | `social-chat-domain.mrs` | 842 | `social-chat-ipcidr.mrs` | 80 |
+| 社交聊天 | `social-chat-domain.mrs` | 813 | `social-chat-ipcidr.mrs` | 80 |
+| 开发平台 | `developer-platform-domain.mrs` | 133 | `developer-platform-ipcidr.mrs` | 22 |
 | 国外媒体 | `foreign-media-domain.mrs` | 34124 | `foreign-media-ipcidr.mrs` | 1243 |
 | 微软苹果 | `microsoft-apple-domain.mrs` | 2236 | `microsoft-apple-ipcidr.mrs` | 13 |
 | 全球直连 | `direct-domain.mrs` | 2247 | `direct-ipcidr.mrs` | 7663 |
@@ -18,23 +19,16 @@
 - GitHub Actions：`.github/workflows/update-mrs.yml`。
 - 默认每天 UTC `02:17` 运行一次，也支持手动 `workflow_dispatch`。
 - 更新逻辑：读取 `sources/base/*.txt` 作为本仓库基础规则，再拉取 `sources/upstreams.yml` 中的上游，去重合并后用 `mihomo convert-ruleset` 重新生成 `.mrs`。
-- 如果上游新增域名或 IP，Actions 会自动合并到对应分类的 `.mrs`；没有变化则不提交。
+- 每次运行都会发布/覆盖 `mrs-latest` Release，生成固定下载地址；没有规则变化也会刷新 Release 资产。
 
 ## 已配置上游分类
 
 - AI平台：OpenAI / ChatGPT、Claude、Gemini、Microsoft Copilot、Bing，并把包含 `copilot` 的 GitHub 相关规则归入 AI 平台。
-- 社交聊天：WhatsApp、Telegram、GitHub、Twitter / X、Facebook、Instagram。
+- 社交聊天：WhatsApp、Telegram、Twitter / X、Facebook、Instagram。
+- 开发平台：GitHub、GitLab、Docker、JetBrains、Cloudflare、Vercel、SourceForge、GitBook。
 - 国外媒体：YouTube、Netflix、Hulu、Disney / Disney+、Spotify、Twitch、HBO、Prime Video、Bahamut。
 - 微软苹果：Apple、Microsoft、OneDrive、Xbox。
 - 后续要增加其它服务，只需向 `sources/upstreams.yml` 添加对应 URL。
-
-## 转换规则
-
-- `DOMAIN` → domain payload 原域名。
-- `DOMAIN-SUFFIX` → domain payload `.域名`。
-- `IP-CIDR` / `IP-CIDR6` → ipcidr payload，去除策略组和 `no-resolve` 参数。
-- `DOMAIN-KEYWORD`、`PROCESS-NAME`、`GEOIP`、`MATCH` 等不能安全写入 domain/ipcidr `.mrs`，会保存在 `unsupported-classical-only.list`。
-
 
 ## Release 固定下载地址
 
@@ -44,6 +38,8 @@ Release 标签固定为 `mrs-latest`，Actions 每次自动更新后会覆盖上
 - AI平台 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/ai-platform-ipcidr.mrs
 - 社交聊天 domain: https://github.com/aoxijy/guize/releases/latest/download/social-chat-domain.mrs
 - 社交聊天 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/social-chat-ipcidr.mrs
+- 开发平台 domain: https://github.com/aoxijy/guize/releases/latest/download/developer-platform-domain.mrs
+- 开发平台 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/developer-platform-ipcidr.mrs
 - 国外媒体 domain: https://github.com/aoxijy/guize/releases/latest/download/foreign-media-domain.mrs
 - 国外媒体 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/foreign-media-ipcidr.mrs
 - 微软苹果 domain: https://github.com/aoxijy/guize/releases/latest/download/microsoft-apple-domain.mrs
@@ -52,63 +48,106 @@ Release 标签固定为 `mrs-latest`，Actions 每次自动更新后会覆盖上
 - 全球直连 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/direct-ipcidr.mrs
 - 全球拦截 domain: https://github.com/aoxijy/guize/releases/latest/download/reject-domain.mrs
 
+## 转换规则
+
+- `DOMAIN` → domain payload 原域名。
+- `DOMAIN-SUFFIX` → domain payload `.域名`。
+- `IP-CIDR` / `IP-CIDR6` → ipcidr payload，去除策略组和 `no-resolve` 参数。
+- `DOMAIN-KEYWORD`、`PROCESS-NAME`、`GEOIP`、`MATCH` 等不能安全写入 domain/ipcidr `.mrs`，会保存在 `unsupported-classical-only.list`。
+
 ## rule-providers 示例
 
 ```yaml
 rule-providers:
   ai-platform-domain:
-    type: file
+    type: http
     behavior: domain
     format: mrs
-    path: ./Clash/MRS/ai-platform-domain.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/ai-platform-domain.mrs
+    path: ./ruleset/ai-platform-domain.mrs
+    interval: 86400
   ai-platform-ipcidr:
-    type: file
+    type: http
     behavior: ipcidr
     format: mrs
-    path: ./Clash/MRS/ai-platform-ipcidr.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/ai-platform-ipcidr.mrs
+    path: ./ruleset/ai-platform-ipcidr.mrs
+    interval: 86400
   social-chat-domain:
-    type: file
+    type: http
     behavior: domain
     format: mrs
-    path: ./Clash/MRS/social-chat-domain.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/social-chat-domain.mrs
+    path: ./ruleset/social-chat-domain.mrs
+    interval: 86400
   social-chat-ipcidr:
-    type: file
+    type: http
     behavior: ipcidr
     format: mrs
-    path: ./Clash/MRS/social-chat-ipcidr.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/social-chat-ipcidr.mrs
+    path: ./ruleset/social-chat-ipcidr.mrs
+    interval: 86400
+  developer-platform-domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/developer-platform-domain.mrs
+    path: ./ruleset/developer-platform-domain.mrs
+    interval: 86400
+  developer-platform-ipcidr:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/developer-platform-ipcidr.mrs
+    path: ./ruleset/developer-platform-ipcidr.mrs
+    interval: 86400
   foreign-media-domain:
-    type: file
+    type: http
     behavior: domain
     format: mrs
-    path: ./Clash/MRS/foreign-media-domain.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/foreign-media-domain.mrs
+    path: ./ruleset/foreign-media-domain.mrs
+    interval: 86400
   foreign-media-ipcidr:
-    type: file
+    type: http
     behavior: ipcidr
     format: mrs
-    path: ./Clash/MRS/foreign-media-ipcidr.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/foreign-media-ipcidr.mrs
+    path: ./ruleset/foreign-media-ipcidr.mrs
+    interval: 86400
   microsoft-apple-domain:
-    type: file
+    type: http
     behavior: domain
     format: mrs
-    path: ./Clash/MRS/microsoft-apple-domain.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/microsoft-apple-domain.mrs
+    path: ./ruleset/microsoft-apple-domain.mrs
+    interval: 86400
   microsoft-apple-ipcidr:
-    type: file
+    type: http
     behavior: ipcidr
     format: mrs
-    path: ./Clash/MRS/microsoft-apple-ipcidr.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/microsoft-apple-ipcidr.mrs
+    path: ./ruleset/microsoft-apple-ipcidr.mrs
+    interval: 86400
   direct-domain:
-    type: file
+    type: http
     behavior: domain
     format: mrs
-    path: ./Clash/MRS/direct-domain.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/direct-domain.mrs
+    path: ./ruleset/direct-domain.mrs
+    interval: 86400
   direct-ipcidr:
-    type: file
+    type: http
     behavior: ipcidr
     format: mrs
-    path: ./Clash/MRS/direct-ipcidr.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/direct-ipcidr.mrs
+    path: ./ruleset/direct-ipcidr.mrs
+    interval: 86400
   reject-domain:
-    type: file
+    type: http
     behavior: domain
     format: mrs
-    path: ./Clash/MRS/reject-domain.mrs
+    url: https://github.com/aoxijy/guize/releases/latest/download/reject-domain.mrs
+    path: ./ruleset/reject-domain.mrs
+    interval: 86400
 ```

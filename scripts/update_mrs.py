@@ -20,6 +20,7 @@ UPSTREAMS_FILE = MRS_DIR / "sources" / "upstreams.yml"
 CATEGORIES = {
     "ai-platform": "AI平台",
     "social-chat": "社交聊天",
+    "developer-platform": "开发平台",
     "foreign-media": "国外媒体",
     "microsoft-apple": "微软苹果",
     "direct": "全球直连",

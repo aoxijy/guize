@@ -24,8 +24,6 @@ sources:
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Whatsapp/Whatsapp.list
     - name: blackmatrix7-telegram
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
-    - name: blackmatrix7-github
-      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
     - name: blackmatrix7-twitter
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
     - name: blackmatrix7-facebook
@@ -36,12 +34,31 @@ sources:
       url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Whatsapp.list
     - name: acl4ssr-telegram
       url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Telegram.list
-    - name: acl4ssr-github
-      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Github.list
     - name: acl4ssr-twitter
       url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Twitter.list
     - name: acl4ssr-facebook
       url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Facebook.list
+  developer-platform:
+    - name: blackmatrix7-github
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
+    - name: blackmatrix7-gitlab
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitLab/GitLab.list
+    - name: blackmatrix7-docker
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Docker/Docker.list
+    - name: acl4ssr-docker
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Docker.list
+    - name: acl4ssr-jetbrains
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/JetBrains.list
+    - name: blackmatrix7-cloudflare
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare.list
+    - name: blackmatrix7-vercel
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Vercel/Vercel.list
+    - name: blackmatrix7-sourceforge
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SourceForge/SourceForge.list
+    - name: blackmatrix7-gitbook
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitBook/GitBook.list
+    - name: acl4ssr-github
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Github.list
   foreign-media:
     - name: blackmatrix7-youtube
       url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list
