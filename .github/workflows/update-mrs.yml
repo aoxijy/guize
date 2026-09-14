@@ -1,0 +1,44 @@
+name: Update Mihomo MRS rulesets
+
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-mrs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download mihomo
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="v1.19.30"
+          url="https://github.com/MetaCubeX/mihomo/releases/download/${version}/mihomo-linux-amd64-${version}.gz"
+          curl -L --retry 5 --retry-delay 3 -o /tmp/mihomo.gz "$url"
+          gzip -df /tmp/mihomo.gz
+          chmod +x /tmp/mihomo
+          /tmp/mihomo -v
+
+      - name: Update and compile MRS
+        run: python3 scripts/update_mrs.py --mihomo /tmp/mihomo
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- Clash/MRS; then
+            echo "No MRS changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Clash/MRS
+          git commit -m "Update Mihomo MRS rulesets"
+          git push

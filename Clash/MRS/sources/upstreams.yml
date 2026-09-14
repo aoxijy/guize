@@ -1,0 +1,34 @@
+# 上游 Clash 规则源。
+# updater 会把这些源增量合并到对应分类，再编译为 .mrs。
+# 支持 DOMAIN、DOMAIN-SUFFIX、IP-CIDR、IP-CIDR6；DOMAIN-KEYWORD/PROCESS-NAME/GEOIP/MATCH 会写入 unsupported-classical-only.list。
+sources:
+  social-chat:
+    - name: blackmatrix7-whatsapp
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Whatsapp/Whatsapp.list
+    - name: blackmatrix7-telegram
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+    - name: blackmatrix7-github
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
+    - name: blackmatrix7-twitter
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
+    - name: blackmatrix7-facebook
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list
+    - name: blackmatrix7-instagram
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.list
+    - name: acl4ssr-whatsapp
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Whatsapp.list
+    - name: acl4ssr-telegram
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Telegram.list
+    - name: acl4ssr-github
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Github.list
+    - name: acl4ssr-twitter
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Twitter.list
+    - name: acl4ssr-facebook
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Facebook.list
+  ai-platform:
+    - name: blackmatrix7-openai
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+    - name: blackmatrix7-claude
+      url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
+    - name: acl4ssr-openai
+      url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list

@@ -1,27 +1,41 @@
 {
-  "total_rules": 47105,
-  "type_counts": {
-    "DOMAIN": 197,
-    "DOMAIN-SUFFIX": 37779,
-    "DOMAIN-KEYWORD": 93,
-    "PROCESS-NAME": 14,
-    "IP-CIDR": 8999,
-    "IP-CIDR6": 21,
-    "GEOIP": 1,
-    "MATCH": 1
+  "categories": {
+    "ai-platform": "AI平台",
+    "social-chat": "社交聊天",
+    "foreign-media": "国外媒体",
+    "microsoft-apple": "微软苹果",
+    "direct": "全球直连",
+    "reject": "全球拦截"
   },
   "domain_files": {
-    "ai-platform": 30,
-    "direct": 2274,
-    "foreign-media": 34484,
+    "ai-platform": 50,
+    "social-chat": 842,
+    "foreign-media": 34095,
     "microsoft-apple": 186,
-    "reject": 157,
-    "social-chat": 845
+    "direct": 2247,
+    "reject": 156
   },
   "ipcidr_files": {
-    "direct": 7715,
-    "foreign-media": 1240,
-    "social-chat": 65
+    "ai-platform": 2,
+    "social-chat": 80,
+    "foreign-media": 1231,
+    "direct": 7663
   },
-  "unsupported_count": 109
+  "upstream_rule_lines": {
+    "blackmatrix7-whatsapp": 17,
+    "blackmatrix7-telegram": 46,
+    "blackmatrix7-github": 31,
+    "blackmatrix7-twitter": 33,
+    "blackmatrix7-facebook": 570,
+    "blackmatrix7-instagram": 4,
+    "acl4ssr-whatsapp": 16,
+    "acl4ssr-telegram": 14,
+    "acl4ssr-github": 6,
+    "acl4ssr-twitter": 12,
+    "acl4ssr-facebook": 21,
+    "blackmatrix7-openai": 35,
+    "blackmatrix7-claude": 3,
+    "acl4ssr-openai": 17
+  },
+  "unsupported_count": 28
 }
