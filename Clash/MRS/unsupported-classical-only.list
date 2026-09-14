@@ -1,4 +1,6 @@
 # 这些规则未写入 domain/ipcidr .mrs，需要 classical 行为或保留在主配置 rules 中。
+# source: manual-lanjie category: reject
+DOMAIN-KEYWORD,adobe
 # source: blackmatrix7-openai category: ai-platform
 DOMAIN-KEYWORD,openai
 # source: blackmatrix7-openai category: ai-platform
@@ -193,3 +195,7 @@ DOMAIN-KEYWORD,1drv
 DOMAIN-KEYWORD,onedrive
 # source: acl4ssr-onedrive category: microsoft-apple
 DOMAIN-KEYWORD,skydrive
+# source: blackmatrix7-adobe category: reject
+DOMAIN-KEYWORD,adobe
+# source: acl4ssr-adobe category: reject
+DOMAIN-KEYWORD,adobe

@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MRS_DIR = ROOT / "Clash" / "MRS"
 BASE_DIR = MRS_DIR / "sources" / "base"
 UPSTREAMS_FILE = MRS_DIR / "sources" / "upstreams.yml"
+MANUAL_REJECT_FILE = ROOT / "lanjie.list"
 
 CATEGORIES = {
     "ai-platform": "AI平台",
@@ -164,6 +165,15 @@ def main() -> int:
     for category in CATEGORIES:
         domains[category].extend(read_lines(BASE_DIR / f"{category}-domain.txt"))
         ips[category].extend(read_lines(BASE_DIR / f"{category}-ipcidr.txt"))
+
+    # 手工拦截源：用户以后直接改仓库根目录 lanjie.list，push 后 Actions 会重新编译 reject .mrs。
+    if MANUAL_REJECT_FILE.exists():
+        for raw in MANUAL_REJECT_FILE.read_text(encoding="utf-8", errors="replace").splitlines():
+            rule = normalize_rule(raw)
+            if not rule:
+                continue
+            add_rule("reject", rule, domains, ips, unsupported, "manual-lanjie")
+            source_counts["manual-lanjie"] += 1
 
     upstreams = load_upstreams(UPSTREAMS_FILE)
     for category, sources in upstreams.items():

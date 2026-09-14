@@ -4,6 +4,13 @@ on:
   schedule:
     - cron: '17 2 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'lanjie.list'
+      - 'Clash/MRS/sources/**'
+      - 'scripts/update_mrs.py'
+      - '.github/workflows/update-mrs.yml'
 
 permissions:
   contents: write
