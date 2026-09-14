@@ -107,6 +107,11 @@ def add_rule(category: str, rule: str, domains: dict[str, list[str]], ips: dict[
     if len(parts) < 2:
         return
     typ, value = parts[0], parts[1]
+
+    # GitHub Copilot / Microsoft Copilot 属于 AI 平台，不放在普通 GitHub 社交聊天分类。
+    if "copilot" in value.lower():
+        category = "ai-platform"
+
     if typ == "DOMAIN":
         domains[category].append(value)
     elif typ == "DOMAIN-SUFFIX":

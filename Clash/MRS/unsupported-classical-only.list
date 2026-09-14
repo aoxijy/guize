@@ -1,4 +1,28 @@
 # 这些规则未写入 domain/ipcidr .mrs，需要 classical 行为或保留在主配置 rules 中。
+# source: blackmatrix7-openai category: ai-platform
+DOMAIN-KEYWORD,openai
+# source: blackmatrix7-openai category: ai-platform
+IP-ASN,20473,no-resolve
+# source: blackmatrix7-gemini category: ai-platform
+DOMAIN-KEYWORD,colab
+# source: blackmatrix7-gemini category: ai-platform
+DOMAIN-KEYWORD,developerprofiles
+# source: blackmatrix7-gemini category: ai-platform
+DOMAIN-KEYWORD,generativelanguage
+# source: blackmatrix7-copilot category: ai-platform
+DOMAIN-KEYWORD,openaicom-api
+# source: blackmatrix7-copilot category: ai-platform
+IP-ASN,14061,no-resolve
+# source: blackmatrix7-copilot category: ai-platform
+IP-ASN,20473,no-resolve
+# source: acl4ssr-openai category: ai-platform
+DOMAIN-KEYWORD,openai
+# source: acl4ssr-gemini category: ai-platform
+DOMAIN-KEYWORD,colab
+# source: acl4ssr-gemini category: ai-platform
+DOMAIN-KEYWORD,developerprofiles
+# source: acl4ssr-gemini category: ai-platform
+DOMAIN-KEYWORD,generativelanguage
 # source: blackmatrix7-whatsapp category: social-chat
 DOMAIN-KEYWORD,whatsapp
 # source: blackmatrix7-telegram category: social-chat
@@ -49,9 +73,123 @@ DOMAIN-KEYWORD,twitter
 DOMAIN-KEYWORD,facebook
 # source: acl4ssr-facebook category: social-chat
 DOMAIN-KEYWORD,fbcdn
-# source: blackmatrix7-openai category: ai-platform
-DOMAIN-KEYWORD,openai
-# source: blackmatrix7-openai category: ai-platform
-IP-ASN,20473,no-resolve
-# source: acl4ssr-openai category: ai-platform
-DOMAIN-KEYWORD,openai
+# source: blackmatrix7-youtube category: foreign-media
+DOMAIN-KEYWORD,youtube
+# source: blackmatrix7-netflix category: foreign-media
+DOMAIN-KEYWORD,apiproxy-device-prod-nlb-
+# source: blackmatrix7-netflix category: foreign-media
+DOMAIN-KEYWORD,dualstack.apiproxy-
+# source: blackmatrix7-netflix category: foreign-media
+DOMAIN-KEYWORD,dualstack.ichnaea-web-
+# source: blackmatrix7-netflix category: foreign-media
+DOMAIN-KEYWORD,netflixdnstest
+# source: blackmatrix7-netflix category: foreign-media
+PROCESS-NAME,com.netflix.mediaclient
+# source: blackmatrix7-hulu category: foreign-media
+PROCESS-NAME,com.hulu.plus
+# source: blackmatrix7-disney category: foreign-media
+PROCESS-NAME,com.disney.datg.videoplatforms.android.abc
+# source: blackmatrix7-disney category: foreign-media
+PROCESS-NAME,com.disney.disneyplus
+# source: blackmatrix7-spotify category: foreign-media
+DOMAIN-KEYWORD,spotify
+# source: blackmatrix7-spotify category: foreign-media
+PROCESS-NAME,com.spotify.music
+# source: blackmatrix7-twitch category: foreign-media
+DOMAIN-KEYWORD,ttvnw
+# source: blackmatrix7-twitch category: foreign-media
+PROCESS-NAME,tv.twitch.android.app
+# source: blackmatrix7-hbo category: foreign-media
+PROCESS-NAME,com.hbo.hbonow
+# source: blackmatrix7-primevideo category: foreign-media
+DOMAIN-KEYWORD,avoddashs
+# source: acl4ssr-youtube category: foreign-media
+DOMAIN-KEYWORD,youtube
+# source: acl4ssr-netflix category: foreign-media
+DOMAIN-KEYWORD,apiproxy-device-prod-nlb-
+# source: acl4ssr-netflix category: foreign-media
+DOMAIN-KEYWORD,dualstack.apiproxy-
+# source: acl4ssr-netflix category: foreign-media
+DOMAIN-KEYWORD,netflixdnstest
+# source: acl4ssr-spotify category: foreign-media
+DOMAIN-KEYWORD,-spotify-
+# source: acl4ssr-spotify category: foreign-media
+DOMAIN-KEYWORD,spotify.com
+# source: acl4ssr-twitch category: foreign-media
+DOMAIN-KEYWORD,ttvnw
+# source: blackmatrix7-apple category: microsoft-apple
+DOMAIN-KEYWORD,apple-support.akadns.net
+# source: blackmatrix7-apple category: microsoft-apple
+DOMAIN-KEYWORD,apple.com.akadns.net
+# source: blackmatrix7-apple category: microsoft-apple
+DOMAIN-KEYWORD,apple.com.edgekey.net
+# source: blackmatrix7-apple category: microsoft-apple
+DOMAIN-KEYWORD,buy.itunes.apple.com
+# source: blackmatrix7-apple category: microsoft-apple
+DOMAIN-KEYWORD,smp-device
+# source: blackmatrix7-apple category: microsoft-apple
+DOMAIN-KEYWORD,testflight
+# source: blackmatrix7-apple category: microsoft-apple
+DOMAIN-KEYWORD,icloud.com.akadns.net
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,CoreLocationAgent
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,WeatherWidget
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,apsd
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,com.apple.Maps
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,findmydevice-user-agent
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,fmfd
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,mapspushd
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,netbiosd
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,trustd
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,com.apple.geod
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,Music
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,LookupViewService
+# source: blackmatrix7-apple category: microsoft-apple
+PROCESS-NAME,TV
+# source: blackmatrix7-microsoft category: microsoft-apple
+DOMAIN-KEYWORD,microsoft
+# source: blackmatrix7-microsoft category: microsoft-apple
+DOMAIN-KEYWORD,1drv
+# source: blackmatrix7-microsoft category: microsoft-apple
+DOMAIN-KEYWORD,onedrive
+# source: blackmatrix7-microsoft category: microsoft-apple
+DOMAIN-KEYWORD,skydrive
+# source: blackmatrix7-microsoft category: microsoft-apple
+PROCESS-NAME,OneDrive
+# source: blackmatrix7-microsoft category: microsoft-apple
+PROCESS-NAME,OneDriveUpdater
+# source: blackmatrix7-onedrive category: microsoft-apple
+DOMAIN-KEYWORD,1drv
+# source: blackmatrix7-onedrive category: microsoft-apple
+DOMAIN-KEYWORD,onedrive
+# source: blackmatrix7-onedrive category: microsoft-apple
+DOMAIN-KEYWORD,skydrive
+# source: blackmatrix7-onedrive category: microsoft-apple
+PROCESS-NAME,OneDrive
+# source: blackmatrix7-onedrive category: microsoft-apple
+PROCESS-NAME,OneDriveUpdater
+# source: acl4ssr-microsoft category: microsoft-apple
+DOMAIN-KEYWORD,1drv
+# source: acl4ssr-microsoft category: microsoft-apple
+DOMAIN-KEYWORD,microsoft
+# source: acl4ssr-onedrive category: microsoft-apple
+PROCESS-NAME,OneDrive
+# source: acl4ssr-onedrive category: microsoft-apple
+PROCESS-NAME,OneDriveUpdater
+# source: acl4ssr-onedrive category: microsoft-apple
+DOMAIN-KEYWORD,1drv
+# source: acl4ssr-onedrive category: microsoft-apple
+DOMAIN-KEYWORD,onedrive
+# source: acl4ssr-onedrive category: microsoft-apple
+DOMAIN-KEYWORD,skydrive

@@ -6,10 +6,10 @@
 
 | 分类 | domain .mrs | domain 规则数 | ipcidr .mrs | ipcidr 规则数 |
 |---|---:|---:|---:|---:|
-| AI平台 | `ai-platform-domain.mrs` | 50 | `ai-platform-ipcidr.mrs` | 2 |
+| AI平台 | `ai-platform-domain.mrs` | 84 | `ai-platform-ipcidr.mrs` | 2 |
 | 社交聊天 | `social-chat-domain.mrs` | 842 | `social-chat-ipcidr.mrs` | 80 |
-| 国外媒体 | `foreign-media-domain.mrs` | 34095 | `foreign-media-ipcidr.mrs` | 1231 |
-| 微软苹果 | `microsoft-apple-domain.mrs` | 186 | - | 0 |
+| 国外媒体 | `foreign-media-domain.mrs` | 34124 | `foreign-media-ipcidr.mrs` | 1243 |
+| 微软苹果 | `microsoft-apple-domain.mrs` | 2236 | `microsoft-apple-ipcidr.mrs` | 13 |
 | 全球直连 | `direct-domain.mrs` | 2247 | `direct-ipcidr.mrs` | 7663 |
 | 全球拦截 | `reject-domain.mrs` | 156 | - | 0 |
 
@@ -18,13 +18,15 @@
 - GitHub Actions：`.github/workflows/update-mrs.yml`。
 - 默认每天 UTC `02:17` 运行一次，也支持手动 `workflow_dispatch`。
 - 更新逻辑：读取 `sources/base/*.txt` 作为本仓库基础规则，再拉取 `sources/upstreams.yml` 中的上游，去重合并后用 `mihomo convert-ruleset` 重新生成 `.mrs`。
-- 如果上游没有变化，Actions 不提交；如果 WhatsApp/Telegram 等上游新增 IP 或域名，会自动合并到对应分类的 `.mrs`。
+- 如果上游新增域名或 IP，Actions 会自动合并到对应分类的 `.mrs`；没有变化则不提交。
 
-## 已配置上游
+## 已配置上游分类
 
-- 社交聊天：blackmatrix7 WhatsApp/Telegram/GitHub/Twitter/Facebook/Instagram，ACL4SSR WhatsApp/Telegram/GitHub/Twitter/Facebook。
-- AI平台：blackmatrix7 OpenAI/Claude，ACL4SSR OpenAi。
-- 后续要增加 YouTube/Netflix/Apple/Microsoft/广告拦截等，只需向 `sources/upstreams.yml` 添加 URL。
+- AI平台：OpenAI / ChatGPT、Claude、Gemini、Microsoft Copilot、Bing，并把包含 `copilot` 的 GitHub 相关规则归入 AI 平台。
+- 社交聊天：WhatsApp、Telegram、GitHub、Twitter / X、Facebook、Instagram。
+- 国外媒体：YouTube、Netflix、Hulu、Disney / Disney+、Spotify、Twitch、HBO、Prime Video、Bahamut。
+- 微软苹果：Apple、Microsoft、OneDrive、Xbox。
+- 后续要增加其它服务，只需向 `sources/upstreams.yml` 添加对应 URL。
 
 ## 转换规则
 
@@ -72,6 +74,11 @@ rule-providers:
     behavior: domain
     format: mrs
     path: ./Clash/MRS/microsoft-apple-domain.mrs
+  microsoft-apple-ipcidr:
+    type: file
+    behavior: ipcidr
+    format: mrs
+    path: ./Clash/MRS/microsoft-apple-ipcidr.mrs
   direct-domain:
     type: file
     behavior: domain
