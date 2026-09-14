@@ -35,6 +35,23 @@
 - `IP-CIDR` / `IP-CIDR6` → ipcidr payload，去除策略组和 `no-resolve` 参数。
 - `DOMAIN-KEYWORD`、`PROCESS-NAME`、`GEOIP`、`MATCH` 等不能安全写入 domain/ipcidr `.mrs`，会保存在 `unsupported-classical-only.list`。
 
+
+## Release 固定下载地址
+
+Release 标签固定为 `mrs-latest`，Actions 每次自动更新后会覆盖上传最新 `.mrs`。
+
+- AI平台 domain: https://github.com/aoxijy/guize/releases/latest/download/ai-platform-domain.mrs
+- AI平台 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/ai-platform-ipcidr.mrs
+- 社交聊天 domain: https://github.com/aoxijy/guize/releases/latest/download/social-chat-domain.mrs
+- 社交聊天 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/social-chat-ipcidr.mrs
+- 国外媒体 domain: https://github.com/aoxijy/guize/releases/latest/download/foreign-media-domain.mrs
+- 国外媒体 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/foreign-media-ipcidr.mrs
+- 微软苹果 domain: https://github.com/aoxijy/guize/releases/latest/download/microsoft-apple-domain.mrs
+- 微软苹果 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/microsoft-apple-ipcidr.mrs
+- 全球直连 domain: https://github.com/aoxijy/guize/releases/latest/download/direct-domain.mrs
+- 全球直连 ipcidr: https://github.com/aoxijy/guize/releases/latest/download/direct-ipcidr.mrs
+- 全球拦截 domain: https://github.com/aoxijy/guize/releases/latest/download/reject-domain.mrs
+
 ## rule-providers 示例
 
 ```yaml

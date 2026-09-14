@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Download mihomo
         shell: bash
@@ -29,6 +31,33 @@ jobs:
       - name: Update and compile MRS
         run: python3 scripts/update_mrs.py --mihomo /tmp/mihomo
 
+      - name: Build release notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp Clash/MRS/*.mrs dist/
+          cp Clash/MRS/summary.json dist/
+          cp Clash/MRS/README.md dist/
+          {
+            echo "# Mihomo MRS rulesets"
+            echo
+            echo "This release is generated automatically from upstream rule sources."
+            echo
+            echo "## Stable download URLs"
+            echo
+            for f in dist/*.mrs; do
+              name="$(basename "$f")"
+              echo "- ${name}: https://github.com/${GITHUB_REPOSITORY}/releases/latest/download/${name}"
+            done
+            echo
+            echo "## Summary"
+            echo
+            echo '```json'
+            cat Clash/MRS/summary.json
+            echo '```'
+          } > dist/RELEASE_NOTES.md
+
       - name: Commit changes
         shell: bash
         run: |
@@ -42,3 +71,16 @@ jobs:
           git add Clash/MRS
           git commit -m "Update Mihomo MRS rulesets"
           git push
+
+      - name: Publish latest MRS release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: mrs-latest
+          name: Latest Mihomo MRS rulesets
+          body_path: dist/RELEASE_NOTES.md
+          make_latest: true
+          overwrite_files: true
+          files: |
+            dist/*.mrs
+            dist/summary.json
+            dist/README.md
