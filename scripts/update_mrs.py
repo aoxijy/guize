@@ -105,6 +105,32 @@ def normalize_rule(line: str) -> str | None:
     return s or None
 
 
+def domain_suffix(value: str) -> str:
+    """DOMAIN-SUFFIX 的 mihomo domain payload 写法。
+
+    mihomo(rule-providers, behavior=domain, format=mrs) 中：
+      `x`   只精确匹配 x
+      `.x`  只匹配 x 的子域名（实测不匹配 x 本身）
+      `+.x` 同时匹配 x 本身及其所有子域名
+    所以 DOMAIN-SUFFIX 必须写成 `+.x`，否则顶级域名会漏掉。
+    """
+    return "+." + value.strip().lstrip("+.")
+
+
+def normalize_domain_payload(item: str) -> str:
+    """规范化基础规则文件（sources/base/*-domain.txt）里的域名条目：
+
+    这些文件用「带点 = 后缀、不带点 = 精确」表达原始规则，
+    其中 `.x` 在 mihomo 里只匹配子域名，需要补成 `+.x` 才能覆盖 x 本身。
+    """
+    s = item.strip()
+    if s.startswith("+."):
+        return s
+    if s.startswith("."):
+        return "+" + s
+    return s
+
+
 def add_rule(category: str, rule: str, domains: dict[str, list[str]], ips: dict[str, list[str]], unsupported: list[dict[str, str]], source: str) -> None:
     parts = [p.strip() for p in rule.split(",")]
     if len(parts) < 2:
@@ -118,7 +144,7 @@ def add_rule(category: str, rule: str, domains: dict[str, list[str]], ips: dict[
     if typ == "DOMAIN":
         domains[category].append(value)
     elif typ == "DOMAIN-SUFFIX":
-        domains[category].append("." + value.lstrip("."))
+        domains[category].append(domain_suffix(value))
     elif typ in SUPPORTED_IP:
         ips[category].append(value)
     else:
@@ -126,7 +152,7 @@ def add_rule(category: str, rule: str, domains: dict[str, list[str]], ips: dict[
 
 
 def unique_sorted(items: list[str]) -> list[str]:
-    return sorted(set(i.strip() for i in items if i.strip()), key=lambda x: (x.lstrip("."), x))
+    return sorted(set(i.strip() for i in items if i.strip()), key=lambda x: (x.lstrip("+."), x))
 
 
 def write_payloads(domains: dict[str, list[str]], ips: dict[str, list[str]]) -> None:
@@ -164,7 +190,7 @@ def main() -> int:
     source_counts = Counter()
 
     for category in CATEGORIES:
-        domains[category].extend(read_lines(BASE_DIR / f"{category}-domain.txt"))
+        domains[category].extend(normalize_domain_payload(x) for x in read_lines(BASE_DIR / f"{category}-domain.txt"))
         ips[category].extend(read_lines(BASE_DIR / f"{category}-ipcidr.txt"))
 
     # 手工拦截源：用户以后直接改仓库根目录 lanjie.list，push 后 Actions 会重新编译 reject .mrs。

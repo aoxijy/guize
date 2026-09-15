@@ -53,8 +53,10 @@ Release 标签固定为 `mrs-latest`，Actions 每次自动更新后会覆盖上
 
 ## 转换规则
 
-- `DOMAIN` → domain payload 原域名。
-- `DOMAIN-SUFFIX` → domain payload `.域名`。
+- `DOMAIN` → domain payload 原域名（精确匹配，只匹配该域名本身）。
+- `DOMAIN-SUFFIX` → domain payload `+.域名`。
+  - ⚠️ mihomo 的 `behavior: domain` 规则集里，`.域名` **只匹配子域名、不匹配域名本身**，`+.域名` 才同时匹配域名本身及其所有子域名。
+  - 所以所有后缀类规则（含 `sources/base/*-domain.txt` 里以 `.` 开头的条目）统一编译为 `+.域名`，否则 `openai.com`、`baidu.com` 这类顶级域名会漏掉、被丢给 `MATCH` 兜底。
 - `IP-CIDR` / `IP-CIDR6` → ipcidr payload，去除策略组和 `no-resolve` 参数。
 - `DOMAIN-KEYWORD`、`PROCESS-NAME`、`GEOIP`、`MATCH` 等不能安全写入 domain/ipcidr `.mrs`，会保存在 `unsupported-classical-only.list`。
 
