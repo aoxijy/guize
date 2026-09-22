@@ -15,7 +15,7 @@
     "foreign-media": 34124,
     "microsoft-apple": 2236,
     "direct": 2247,
-    "reject": 159
+    "reject": 160
   },
   "ipcidr_files": {
     "ai-platform": 2,
@@ -26,7 +26,7 @@
     "direct": 7663
   },
   "upstream_rule_lines": {
-    "manual-lanjie": 158,
+    "manual-lanjie": 159,
     "manual-zhilian": 22,
     "blackmatrix7-openai": 35,
     "blackmatrix7-claude": 3,
