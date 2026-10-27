@@ -156,3 +156,7 @@ rule-providers:
     path: ./ruleset/reject-domain.mrs
     interval: 86400
 ```
+
+## sing-box 二进制规则
+
+同一次工作流也会从这些 MRS 文件生成对应 `.srs` 并上传至相同 Release。原有 MRS 下载地址不变，SRS 使用相同文件名并替换扩展名。详见 [SingBox/SRS](../../SingBox/SRS/README.md)。
