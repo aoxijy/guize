@@ -1,4 +1,4 @@
-name: Update Mihomo MRS rulesets
+name: Update Mihomo MRS and sing-box SRS rulesets
 
 on:
   schedule:
@@ -11,6 +11,8 @@ on:
       - 'zhilian.list'
       - 'Clash/MRS/sources/**'
       - 'scripts/update_mrs.py'
+      - 'scripts/build_srs.py'
+      - 'tests/test_build_srs.py'
       - '.github/workflows/update-mrs.yml'
 
 permissions:
@@ -36,8 +38,25 @@ jobs:
           chmod +x /tmp/mihomo
           /tmp/mihomo -v
 
+      - name: Download sing-box
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="1.14.4"
+          url="https://github.com/SagerNet/sing-box/releases/download/v${version}/sing-box-${version}-linux-amd64.tar.gz"
+          curl -fL --retry 5 --retry-delay 3 -o /tmp/sing-box.tar.gz "$url"
+          tar -xzf /tmp/sing-box.tar.gz -C /tmp
+          install -m 755 "/tmp/sing-box-${version}-linux-amd64/sing-box" /tmp/sing-box
+          /tmp/sing-box version
+
+      - name: Test SRS conversion semantics
+        run: python3 -m unittest discover -s tests -p 'test_build_srs.py'
+
       - name: Update and compile MRS
         run: python3 scripts/update_mrs.py --mihomo /tmp/mihomo
+
+      - name: Compile and verify SRS from the same MRS artifacts
+        run: python3 scripts/build_srs.py --mihomo /tmp/mihomo --sing-box /tmp/sing-box
 
       - name: Build release notes
         shell: bash
@@ -45,16 +64,18 @@ jobs:
           set -euo pipefail
           mkdir -p dist
           cp Clash/MRS/*.mrs dist/
+          cp SingBox/SRS/*.srs dist/
+          cp SingBox/SRS/summary-srs.json dist/
           cp Clash/MRS/summary.json dist/
           cp Clash/MRS/README.md dist/
           {
-            echo "# Mihomo MRS rulesets"
+            echo "# Mihomo MRS and sing-box SRS rulesets"
             echo
-            echo "This release is generated automatically from upstream rule sources."
+            echo "Both formats are generated in the same run. SRS files are decoded from the corresponding MRS artifacts and verified by a compile/decompile round trip."
             echo
             echo "## Stable download URLs"
             echo
-            for f in dist/*.mrs; do
+            for f in dist/*.mrs dist/*.srs; do
               name="$(basename "$f")"
               echo "- ${name}: https://github.com/${GITHUB_REPOSITORY}/releases/latest/download/${name}"
             done
@@ -70,25 +91,27 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- Clash/MRS; then
-            echo "No MRS changes."
+          git add Clash/MRS SingBox/SRS
+          if git diff --cached --quiet -- Clash/MRS SingBox/SRS; then
+            echo "No MRS or SRS changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Clash/MRS
-          git commit -m "Update Mihomo MRS rulesets"
+          git commit -m "Update Mihomo MRS and sing-box SRS rulesets"
           git push
 
-      - name: Publish latest MRS release
+      - name: Publish latest MRS and SRS release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: mrs-latest
-          name: Latest Mihomo MRS rulesets
+          name: Latest Mihomo MRS and sing-box SRS rulesets
           body_path: dist/RELEASE_NOTES.md
           make_latest: true
           overwrite_files: true
           files: |
             dist/*.mrs
+            dist/*.srs
+            dist/summary-srs.json
             dist/summary.json
             dist/README.md
