@@ -1,0 +1,80 @@
+{
+  "ai-platform-domain.srs": {
+    "source": "ai-platform-domain.mrs",
+    "source_sha256": "d9f96f75170ea7bf150fe0b7561a1fda4495bd8e16bf91458140974aa09beb04",
+    "sha256": "f975f7de762caccc4074563fb7564e1b95b4c96fb4d6a4a1d42e7c7d5bcb586f",
+    "entries": 81
+  },
+  "ai-platform-ipcidr.srs": {
+    "source": "ai-platform-ipcidr.mrs",
+    "source_sha256": "f395f8f030637bbc9fea291f99ab25d4249522ae2c744e976ac6bd65267c6564",
+    "sha256": "6c31e9e5f835cb84968187464cd3d2f66001bd1fe7a54a518884fdd28c74291e",
+    "entries": 2
+  },
+  "developer-platform-domain.srs": {
+    "source": "developer-platform-domain.mrs",
+    "source_sha256": "9db6d2251827a7bc25218fa3778468075881cb51abe33c9dcabbd761fc57d0ae",
+    "sha256": "30fd1d04c23e3efc91a9bbca83cf9613683d051be160edea4e2c8f9411d669b3",
+    "entries": 133
+  },
+  "developer-platform-ipcidr.srs": {
+    "source": "developer-platform-ipcidr.mrs",
+    "source_sha256": "32357c489f9c6c84b8c8d8c3be60f6b586af26281821e61535f24de25e743e78",
+    "sha256": "94b67131e0585d5c941361fb7b02f918404f99c327607f67bfd7090608cabc54",
+    "entries": 22
+  },
+  "direct-domain.srs": {
+    "source": "direct-domain.mrs",
+    "source_sha256": "3c4949cafdd54bb6b991c90b84b8d68e91c6017538fe12ed2cb9b7ec4daeb4c1",
+    "sha256": "fa3d39ff1b436d986502e490114df9b76b5d62aa78220e6facccb0beab2849c6",
+    "entries": 2246
+  },
+  "direct-ipcidr.srs": {
+    "source": "direct-ipcidr.mrs",
+    "source_sha256": "5328fac21823a1dff9da2aa8e4ffb858680753f385935a1b7fb3e6df938adb7e",
+    "sha256": "d264b584395a1df536ceb5e11a4e89d909163d75afcd4ba89b29407ba37f9bc4",
+    "entries": 7103
+  },
+  "foreign-media-domain.srs": {
+    "source": "foreign-media-domain.mrs",
+    "source_sha256": "cd4d2d38acd9a793134b979de93c0d9a91511e6e7068136600ab867a1662c28b",
+    "sha256": "fa1f5d127b2a26edb29d05d94ac9a854f06f7f7764fa90c759551a65329c4465",
+    "entries": 34119
+  },
+  "foreign-media-ipcidr.srs": {
+    "source": "foreign-media-ipcidr.mrs",
+    "source_sha256": "64b8eb3154dbf8405684b4ab590813fe6944a449218930af335666231d440230",
+    "sha256": "e2dcd8aba9c3d1d1cd6bd55d25efc9f75e799e3ea46d762de8a04d3d68aa1754",
+    "entries": 1223
+  },
+  "microsoft-apple-domain.srs": {
+    "source": "microsoft-apple-domain.mrs",
+    "source_sha256": "f75ceaa692623a3ad840496662d469598685932bd51cee17862e99501f5c267b",
+    "sha256": "cb16f1dfa23c9a2f8fd2b6a7aca97eecc2bc7e4834cafaf5c285d847dc6cde20",
+    "entries": 2233
+  },
+  "microsoft-apple-ipcidr.srs": {
+    "source": "microsoft-apple-ipcidr.mrs",
+    "source_sha256": "333c99021f21736882b611d8d1b9ecfb00bae7eebe10a65fb3b0e93f2cc9dd09",
+    "sha256": "affd5bb7d215d7c8d6ca6447f37972f1870aa2604f494b392cd2f624670a7e41",
+    "entries": 13
+  },
+  "reject-domain.srs": {
+    "source": "reject-domain.mrs",
+    "source_sha256": "29fe6793add63a7d2c5ed65c16c3ed56eb711ad44da9ac02aa0f574a3c898ee7",
+    "sha256": "c3fbff9f45ebd7ec78f8f1242035f6616bd0a8af21e3ca48e694fcb82edb97ab",
+    "entries": 160
+  },
+  "social-chat-domain.srs": {
+    "source": "social-chat-domain.mrs",
+    "source_sha256": "c7baaa5bcd4f6f4a0f4b88bf9572c068d60571638b42af4571037fb3858c99d4",
+    "sha256": "9d1d8c1020fbce38255b344f7f8ae61796617d996e0089b441064e699933ad24",
+    "entries": 813
+  },
+  "social-chat-ipcidr.srs": {
+    "source": "social-chat-ipcidr.mrs",
+    "source_sha256": "e9b6d207d982bbf3a3bcaffbe5fb379fa81380d96e3be38d4868d11500ccd4b9",
+    "sha256": "1e84f2cb3e0f70bcba58040556f3db65472d275f6f50dd263f89a5309419ee98",
+    "entries": 70
+  }
+}
